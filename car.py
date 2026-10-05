@@ -4,16 +4,24 @@
 class Car: #per convenzione le classi hanno iniziale maiuscola
     wheels = 4 # Variabile di classe identica per tute le istanze di quella classe
 
+    # Creazione ed inizializzazione di un oggetto
     def __init__(self, license_plate, color):        #costruttore della classe
         self.license_plate = ""    #  Attributi o Variabili di istanza
         self.color = "White"
         self.turned_on = False
 
+    # Metodi (ovvero le funzioni messe a disposizione di una classe9
     def paint(self, color):
         self.color = color
 
     def turn_on(self):
         self.turned_on = True
+
+
+
+
+
+
 
 #c1 = Car()          #creo un oggetto di classe/tipo Car
 
@@ -44,3 +52,11 @@ c2.turned_on = True
 
 c1.paint("Violet")
 c2.turn_on()
+
+
+# Il programmatore può, tipicamente per sbaglio, andare a definire
+# delle variabili scrivendo nome_oggetto.nome_variabile, ma
+# quella sarà propria solo di quella istanza
+c1.number_of_doors = 2 # E' una variabile di classe, di istanze, oppure ...?
+
+pass
