@@ -2,11 +2,14 @@
 
 
 class Quadro:
+    #Metodo/Funzione che costruisce gli oggetti di classe Quadro e li inizializza
     def __init__(self, artista,titolo, materiali, anno):
-        self.__artista = artista
+        self.__artista = artista   # Privati/Nascosti (con _ per scoraggiare, __ per bloccare l'accesso)
         self.__titolo = titolo
         self.__materiali = materiali
         self.__anno = anno    #1853 e 1890
+
+    # Altri metodi, es. getter/setter per l'accesso agli attributi in lettura e scrittura
 
     # Metodo per leggere il valore dell'attributo nascosto anno (metodo getter)
     @property
@@ -18,8 +21,14 @@ class Quadro:
     def anno(self, anno):
         self.__anno = anno
 
+    # Metodo/funzione che consente al quadro di desriversi come stringa
+    # __str__ come alternativa a nomi più bizzarri come drscriviti(), ...
+    def __str__(self):
+        return f"{self.__artista}, {self.__titolo}, {self.__materiali}, {self.__anno}"
+
 
 q1 = Quadro("Van Gogh", "autoritratto","olio su tela", 1870)
+
 #print(f"{q1.__artista} {q1.__titolo} {q1.__materiali} {q1.__anno}")
 
 #q1.anno = 1945  #Non posso farlo così perchè l'attributo è privato/nascosto
@@ -33,3 +42,13 @@ q1 = Quadro("Van Gogh", "autoritratto","olio su tela", 1870)
 #print("Anno:"+str(q1.leggi_anno()))
 
 print("Anno: "+ str(q1.anno))
+
+# Come faccio a stampare il quadro
+
+#print(q1) #NO
+
+#print(q1.__artista) #NO
+
+# Chi meglio del quadro sa stamparsi?
+
+print(q1.__str__())   # Ho DELEGATO al quadro il compito di stamparsi
